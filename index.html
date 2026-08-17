@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Squish — Image Compressor</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Squish</h1>
+    <p class="tagline">Compress images entirely in your browser. Nothing is uploaded, ever.</p>
+  </header>
+
+  <main>
+    <section id="dropzone" class="dropzone">
+      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp" multiple hidden />
+      <p class="dropzone-title">Drag &amp; drop images here, or click to browse</p>
+      <p class="dropzone-sub">PNG, JPEG, WebP</p>
+    </section>
+
+    <div class="list-actions hidden" id="listActions">
+      <button id="clearBtn" class="btn btn-ghost">Clear all</button>
+    </div>
+
+    <ul id="results" class="results"></ul>
+  </main>
+
+  <template id="rowTemplate">
+    <li class="row">
+      <div class="row-name">
+        <p class="file-name" title=""></p>
+        <p class="file-status">Compressing…</p>
+      </div>
+      <div class="row-sizes">
+        <span class="before-size"></span>
+        <span class="arrow">→</span>
+        <span class="after-size">—</span>
+        <span class="saved-pct badge"></span>
+      </div>
+      <div class="row-actions">
+        <button class="btn btn-small btn-primary download-btn" disabled>Download</button>
+        <button class="btn btn-small btn-ghost remove-btn">Remove</button>
+      </div>
+    </li>
+  </template>
+
+  <footer class="footer">
+    <p>All processing happens locally via the Canvas API. No files leave your device.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
